@@ -1,0 +1,19 @@
+.navi{
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(32, 33, 27, 0.381);
+}
+
+nav ul li{
+    float: right;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
