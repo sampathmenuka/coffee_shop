@@ -1,19 +1,76 @@
+* {
+    box-sizing: border-box;
+  }
+
+.all{
+    background-image: image(Premium Photo _ Latte Coffee art on the wooden table.jpg);
+}
+
 .navi{
     overflow: hidden;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: rgba(32, 33, 27, 0.381);
+    background-color: #3EB489 ;
 }
 
 nav ul li{
-    float: right;
+    float: left;
+    border: 1px solid #3EB489;
+    border-radius: 5px;
 }
 
 li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 36px;
     text-decoration: none;
+    font-size: 3vh;
+    
 }
+
+li a:hover{
+    background-color: #65C3A1;
+    color: black;
+}
+
+.header{
+    background-color: #B2E1D0;
+    text-align: center;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.header {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 4vh;
+    
+  }
+
+  .column{
+    float: left;
+    width: 33.33%;
+  }
+
+  .row:after{
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.";
+    display: table;
+    clear: both;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+  .footer{
+
+    background-color:#B2E1D0 ;
+    text-align: center;
+    padding: 10px;
+  }
