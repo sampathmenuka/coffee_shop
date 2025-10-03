@@ -140,7 +140,7 @@ h1, h2, h3 {
     transition: 0.3s;
 }
 
-/* Hero Section */
+/* Enhanced Hero Section */
 .hero {
     position: relative;
     height: 100vh;
@@ -160,39 +160,116 @@ h1, h2, h3 {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    filter: brightness(0.6);
+    filter: brightness(0.4) contrast(1.2) saturate(1.2);
     z-index: -1;
+    transform: scale(1.1);
+    transition: transform 8s ease-in-out;
+    animation: slowZoom 20s infinite alternate;
 }
 
 .hero-content {
     z-index: 1;
-    max-width: 600px;
-    padding: 2rem;
+    max-width: 800px;
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #FFFFFF;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideInDown 1.5s ease-out;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: #FFD700;
-    margin-bottom: 1rem;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+                 0 0 20px rgba(255, 215, 0, 0.3);
+    letter-spacing: 5px;
+    font-weight: 700;
+    animation: fadeInScale 2s ease-out;
 }
 
 .hero-tagline {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #FFFFFF;
     font-style: italic;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    animation: slideInUp 1.5s ease-out;
 }
 
 .hero-btn {
-    font-size: 1.1rem;
-    padding: 15px 30px;
+    font-size: 1.2rem;
+    padding: 18px 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-out 1s backwards;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #FFD700, #FFC107);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Hero Animations */
+@keyframes slowZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Animations */
