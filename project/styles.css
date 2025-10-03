@@ -157,6 +157,7 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     bottom: 0;
+    background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -324,6 +325,26 @@ h1, h2, h3 {
     margin-top: 1rem;
     font-style: italic;
     color: #666;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    margin: 0 auto;
+}
+
+.placeholder-text {
+    color: #888;
+    font-size: 1rem;
+    text-align: center;
+    font-style: italic;
 }
 
 /* Services Section */

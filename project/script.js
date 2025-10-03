@@ -139,7 +139,7 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Add-to-order button functionality (placeholder)
+// Add-to-order button functionality
 document.querySelectorAll('.menu-item .btn-small').forEach(button => {
     button.addEventListener('click', (e) => {
         const menuItem = e.target.closest('.menu-item');
