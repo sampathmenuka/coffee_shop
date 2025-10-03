@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE - Since 1952</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Arial:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>COFFEE</h1>
+            </div>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <p class="hero-subtitle">We have been serving</p>
+                <h1 class="hero-title">COFFEE</h1>
+                <p class="hero-tagline">* SINCE 1952 *</p>
+            </div>
+            <button class="btn btn-primary hero-btn" onclick="scrollToSection('about')">Learn More</button>
+        </div>
+        <!-- Background image placeholder - replace with actual coffee image -->
+        <div class="hero-bg" style="background-image: url('https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"></div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 1952, COFFEE has been a beloved haven for coffee enthusiasts. Our legacy is built on quality beans, expert brewing, and a passion for bringing people together over a perfect cup.</p>
+                    <button class="btn btn-secondary">Discover More</button>
+                </div>
+                <div class="about-image">
+                    <!-- Historical photo placeholder - replace with actual image -->
+                    <img src="https://images.pexels.com/photos/6347707/pexels-photo-6347707.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop" alt="Our first store in 1952" class="history-image">
+                    <p class="image-caption">Our first store in 1952</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Premium Coffee Blends</h3>
+                    <p>Experience our hand-selected beans from around the world.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Barista Training</h3>
+                    <p>Learn the art of coffee making with our expert courses.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Café Events</h3>
+                    <p>Join us for tasting sessions and community gatherings.</p>
+                </div>
+            </div>
+            <div class="services-cta">
+                <button class="btn btn-primary">Explore Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-filter">
+                <select id="menu-filter" class="filter-dropdown">
+                    <option value="all">All</option>
+                    <option value="hot">Hot</option>
+                    <option value="cold">Cold</option>
+                </select>
+            </div>
+            <div class="menu-grid" id="menu-grid">
+                <div class="menu-item" data-type="hot">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-name">Espresso</h3>
+                        <p class="menu-item-description">Rich and bold, served with crema.</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">$3.50</span>
+                            <button class="btn btn-small">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-type="hot">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-name">Cappuccino</h3>
+                        <p class="menu-item-description">Frothy milk and espresso perfection.</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">$4.00</span>
+                            <button class="btn btn-small">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-type="hot">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-name">Latte</h3>
+                        <p class="menu-item-description">Smooth and creamy with a hint of vanilla.</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">$4.50</span>
+                            <button class="btn btn-small">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-type="hot">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-name">Americano</h3>
+                        <p class="menu-item-description">Strong coffee with a classic taste.</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">$3.00</span>
+                            <button class="btn btn-small">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item" data-type="cold">
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-name">Cold Brew</h3>
+                        <p class="menu-item-description">Chilled and refreshing, brewed for 12 hours.</p>
+                        <div class="menu-item-footer">
+                            <span class="menu-item-price">$4.25</span>
+                            <button class="btn btn-small">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Phone:</strong> +1-123-456-7890</p>
+                    <p><strong>Email:</strong> hello@coffee1952.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 COFFEE. All Rights Reserved</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
