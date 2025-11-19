@@ -1,6 +1,7 @@
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
+const header = document.querySelector('.header');
 
 menuToggle.addEventListener('click', () => {
     nav.classList.toggle('active');
@@ -27,6 +28,20 @@ document.querySelectorAll('.nav-link').forEach(link => {
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'rotate(0) translate(0, 0)';
     });
+});
+
+// Header scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
 });
 
 // Smooth Scrolling Function
@@ -110,70 +125,90 @@ function showFormMessage(message, type) {
     }, 3000);
 }
 
-// Add scroll effect to header
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(60, 47, 47, 0.98)';
-    } else {
-        header.style.background = 'rgba(60, 47, 47, 0.95)';
-    }
-});
-
-// Add intersection observer for fade-in animations
+// Add scroll effect to header - removed duplicate
+// Modern scroll reveal animations with Intersection Observer
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const fadeInObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeIn 0.8s ease-in-out';
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
 }, observerOptions);
 
-// Observe sections for animations
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
+// Observe elements for scroll reveal
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.service-card, .menu-item, .about-content, .contact-content');
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        fadeInObserver.observe(el);
+    });
 });
 
-// Add-to-order button functionality
+// Enhanced add-to-order button functionality with ripple effect
 document.querySelectorAll('.menu-item .btn-small').forEach(button => {
     button.addEventListener('click', (e) => {
         const menuItem = e.target.closest('.menu-item');
         const itemName = menuItem.querySelector('.menu-item-name').textContent;
         const itemPrice = menuItem.querySelector('.menu-item-price').textContent;
         
-        // Temporary visual feedback
+        // Enhanced visual feedback with success state
         const originalText = button.textContent;
-        button.textContent = 'Added!';
-        button.style.background = '#28a745';
+        const originalBg = button.style.background;
+        
+        button.textContent = '✓ Added!';
+        button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+        button.style.transform = 'scale(0.95)';
         
         setTimeout(() => {
             button.textContent = originalText;
-            button.style.background = '';
-        }, 2000);
+            button.style.background = originalBg;
+            button.style.transform = 'scale(1)';
+        }, 1500);
         
         // TODO: Add actual cart functionality
         console.log(`Added ${itemName} (${itemPrice}) to order`);
     });
 });
 
-// Initialize page
+// Modern page load animation
 document.addEventListener('DOMContentLoaded', () => {
-    // Add loading animation to page
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in-out';
+    document.body.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
     
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         document.body.style.opacity = '1';
-    }, 100);
-});
-
-// Performance optimization: Lazy load images
-document.addEventListener('DOMContentLoaded', () => {
+    });
+    
+    // Add smooth parallax effect to hero background
+    const heroParallax = () => {
+        const hero = document.querySelector('.hero-bg');
+        if (hero) {
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    };
+    
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                heroParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Lazy load images
     const images = document.querySelectorAll('img[data-src]');
     
     const imageObserver = new IntersectionObserver((entries) => {
